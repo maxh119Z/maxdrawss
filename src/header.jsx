@@ -88,7 +88,7 @@ function header() {
     return (
       <header className="site-header">
         <a id="Logoname" href="/">
-            <img id="logoimg" src="/maxdraw2/images/connectlogo.png" alt="Logo" />
+            <img id="logoimg" src="/maxdraws/images/connectlogo.png" alt="Logo" />
         </a>
         <div className="header-content">
 
