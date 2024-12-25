@@ -148,9 +148,9 @@ function header() {
       };
     return (
       <div className="site-header">
-        <a id="Logoname" href="/">
+        <Link to="/">
             <img id="logoimg" src="/maxdrawss/images/connectlogo.png" alt="Logo" />
-        </a>
+        </Link>
         <div className="header-content">
 
           <nav>
