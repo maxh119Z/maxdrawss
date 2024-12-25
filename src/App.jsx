@@ -92,10 +92,10 @@ function App() {
   }, []);
 
   return (
-    <Router basename="/maxdraws/">
+    <Router basename="/maxdrawss/">
       <Header />
       <div ref={containerRef}>
-        <AnimatedRoutes basename="/maxdraws" />
+        <AnimatedRoutes basename="/maxdrawss" />
       </div>
       <footer>
         <p>
