@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/maxdraws/', // Required for GitHub Pages
+  base: '/maxdrawss/', // Required for GitHub Pages
 });
