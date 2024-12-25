@@ -128,17 +128,17 @@ function Home() {
   useEffect(() => {
     // Preload images specific to the Home component
     const imagesToPreload = [
-      "/maxdraws/images/connectlogo.png",
-      "/maxdraws/images/Croppedbackground1.png",
-      "/maxdraws/images/maxpicture.jpg",
-      "/maxdraws/images/santa.png",
-      "/maxdraws/images/christmas.png",
-      "/maxdraws/images/person1.jpg",
-      "/maxdraws/images/open.png",
-      "/maxdraws/images/close.png",
-      "/maxdraws/images/back2.gif",
-      "/maxdraws/images/person10.jpg",
-      "/maxdraws/images/ipad1.jpg"
+      "/maxdrawss/images/connectlogo.png",
+      "/maxdrawss/images/Croppedbackground1.png",
+      "/maxdrawss/images/maxpicture.jpg",
+      "/maxdrawss/images/santa.png",
+      "/maxdrawss/images/christmas.png",
+      "/maxdrawss/images/person1.jpg",
+      "/maxdrawss/images/open.png",
+      "/maxdrawss/images/close.png",
+      "/maxdrawss/images/back2.gif",
+      "/maxdrawss/images/person10.jpg",
+      "/maxdrawss/images/ipad1.jpg"
     ];
 
     preloadImages(imagesToPreload).then(() => {
@@ -165,7 +165,7 @@ function Home() {
       <div id="overview">
       <Link to="/People">
           <div className="image-container">
-            <img src="/maxdraws/images/person10.jpg" alt="Overview Image" id="overviewpicture" />
+            <img src="/maxdrawss/images/person10.jpg" alt="Overview Image" id="overviewpicture" />
             <div className="bottom-right-text">Recent</div>
           </div>
         </Link>
@@ -184,25 +184,25 @@ function Home() {
       <div className="person" id="bar">
       <Link to="/People"> 
           <div className="image-container">
-            <img src="/maxdraws/images/person1.jpg" alt="personlookingsideways" className="indexpics" />
+            <img src="/maxdrawss/images/person1.jpg" alt="personlookingsideways" className="indexpics" />
             <div className="bottom-right-text">People</div>
           </div>
         </Link>
         <Link to="/Ipad">
           <div className="image-container">
-            <img src="/maxdraws/images/ipad1.jpg" alt="boyheronwallpaperIdrew" className="indexpics" />
+            <img src="/maxdrawss/images/ipad1.jpg" alt="boyheronwallpaperIdrew" className="indexpics" />
             <div className="bottom-right-text">Ipad Draws</div>
           </div>
         </Link>
         <Link to="/Other">
           <div className="image-container">
-            <img src="/maxdraws/images/other1.jpg" alt="abstractpicture" className="indexpics" />
+            <img src="/maxdrawss/images/other1.jpg" alt="abstractpicture" className="indexpics" />
             <div className="bottom-right-text">Other Stuff</div>
           </div>
         </Link>
         <Link to="/About">
           <div className="image-container">
-            <img src="/maxdraws/images/maxpicture.jpg" alt="maxpicture" className="indexpics" />
+            <img src="/maxdrawss/images/maxpicture.jpg" alt="maxpicture" className="indexpics" />
             <div className="bottom-right-text">About me ig</div>
           </div>
         </Link>
