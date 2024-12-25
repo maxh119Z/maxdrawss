@@ -7,6 +7,128 @@ motion.div {
   background-color: #f0f0f0;
 }
 
+
+.floating-square {
+  pointer-events: none;
+  position: absolute;
+  z-index: 100;
+  width: 65px;
+  height: 65px;
+  background-image: url('images/santa.png'); /* Check if the image path is valid */
+  background-size: cover;
+  opacity: 1;
+  animation: floatAndFade 4s linear forwards, shakeRotate 1.5s infinite;
+}
+.gif{
+  width: 100vw;
+  height:auto;
+  position:fixed;
+  z-index:10000;
+  border: none;
+  box-shadow: none;
+  bottom:-4px;
+  pointer-events: none;
+}
+.shake-container {
+  height: 100%;
+  width: 100%;
+      display: inline-block; 
+      position: relative;  
+  }
+
+
+
+.shake-container.shake {
+    animation: shake 0.3s ease-in-out;
+}
+@keyframes shake {
+  0% { transform: translate(0, 0); }
+  30% { transform: translate(0, 0); }
+  40% { transform: translate(4px, 0); }
+  70% { transform: translate(-4px, 0); }
+  100% { transform: translate(0, 0); }
+}
+.gifimg{
+  border:none;
+  width:100%;
+  box-shadow: none;
+  height:auto;
+  pointer-events: none;
+  }
+
+  .floating-square {
+    pointer-events: none;
+    position: absolute;
+    top:-75px;
+    z-index: 100;
+    width: 65px;
+    height: 65px;
+    background-image: url('images/santa.png'); /* Check if the image path is valid */
+    background-size: cover;
+    opacity: 1;
+    animation: floatAndFade 4s linear forwards, shakeRotate 1.5s infinite;
+  }
+  
+  
+  .floating-rectangle {
+    pointer-events: none;
+    position: absolute;
+    z-index: 100;
+    width: 120px;
+    top:-75px;
+    height: 55px;
+    background-image: url('images/christmas.png'); /* Check if the image path is valid */
+    background-size: cover;
+    opacity: 1;
+    animation: floatAndFade 4s linear forwards, shakeRotate 1.5s infinite;
+  }
+  
+  @keyframes floatAndFade {
+    0% {
+        top: -75px;
+       
+        opacity: 1;
+    }
+    50% {
+        top: 50vh;
+        
+        opacity: 0; /* Combine fade out */
+    }
+    100%{
+      top:100vh;
+      opacity:0;
+    }
+  }
+  
+  
+  @keyframes shakeRotate {
+    0% {
+        transform: rotate(0deg) translateX(0);
+    }
+    25% {
+        transform: rotate(35deg) translateX(-7px);
+    }
+    50% {
+        transform: rotate(0deg) translateX(7px);
+    }
+    75% {
+        transform: rotate(-35deg) translateX(-7px);
+    }
+    100% {
+        transform: rotate(0deg) translateX(0);
+    }
+  }
+
+  #container {
+    position: fixed; /* Ensures the container stays in one place relative to the viewport */
+    top: 0;          /* Aligns the container at the top of the viewport */
+    left: 0;         /* Aligns the container to the left of the viewport */
+    width: 100%;     /* Spans the full width of the viewport */
+    height: 100%;    /* Spans the full height of the viewport */
+    pointer-events: none; /* Prevents interaction with floating squares */
+    z-index: 9999;   /* Ensures the container is above all other content */
+  }
+  
 /* src/Header.css */
 .site-header {
   background-image: url('/images/Croppedbackground1.png');
