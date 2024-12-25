@@ -46,20 +46,20 @@ function header() {
 
             // const numberOfSquares = 24;
 
-            // trackedSetTimeout(() => {
-            //   const containers = document.querySelector('.shake-container');
-            //   if (containers) {
-            //     containers.classList.add('shake');
-            //     console.log("Shaking");
+            trackedSetTimeout(() => {
+              const containers = document.querySelector('.shake-container');
+              if (containers) {
+                containers.classList.add('shake');
+                console.log("Shaking");
 
-            //     containers.addEventListener('animationend', () => {
-            //       containers.classList.remove('shake');
-            //       console.log("removed shaking");
-            //     });
-            //   }
-            //   else{
-            //     console.log("Shaker doesnt exist");
-            //   }
+                containers.addEventListener('animationend', () => {
+                  containers.classList.remove('shake');
+                  console.log("removed shaking");
+                });
+              }
+              else{
+                console.log("Shaker doesnt exist");
+              }
 
             //   for (let i = 0; i < numberOfSquares; i++) {
             //     trackedSetTimeout(function(){
@@ -81,7 +81,7 @@ function header() {
             //       }, 4000);
             //     }, Math.ceil(Math.random() * 1350));
             //   }
-            // }, 1750);
+             }, 1750);
     }, []);
     
       const signOutOfAccount = async () => {
