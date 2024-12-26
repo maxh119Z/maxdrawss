@@ -188,26 +188,23 @@ function App() {
             //     }, Math.ceil(Math.random() * 1350));
             //   }
              }, 1750);
+             
              const popupDiv = document.createElement('div');
-  popupDiv.className = 'popup';
-  popupDiv.innerHTML = `
-    <div class="popup-content">
-      <span class="popup-close">&times;</span>
-      <p>Hi</p>
-    </div>
-  `;
-  document.body.appendChild(popupDiv);
+              popupDiv.className = 'popup';
+              popupDiv.innerHTML = `
+                <div class="popup-content">
+                  <span class="popup-close">&times;</span>
+                  <p>Website recently moved to firebase & github. If any bugs lmk!</p>
+                </div>
+              `;
+              document.body.appendChild(popupDiv);
 
-  // Close popup on click of the 'X'
-  const closePopup = popupDiv.querySelector('.popup-close');
-  closePopup.addEventListener('click', () => {
-    popupDiv.remove();
-  });
-
-  // Show the popup after a delay
-  trackedSetTimeout(() => {
-    popupDiv.style.display = 'block';
-  }, 3000);
+              // Close popup on click of the 'X'
+              const closePopup = popupDiv.querySelector('.popup-close');
+              closePopup.addEventListener('click', () => {
+                popupDiv.remove();
+              });
+                popupDiv.style.display = 'block';
     } else {
       body.style.opacity = '0';
     }

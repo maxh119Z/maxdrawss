@@ -88,11 +88,22 @@ motion.div {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1000;
+  z-index: 100111110;
   background-color: white;
+  max-width:50vw;
+  background-color:#ebf5f8;
+  min-height: auto;
+
+  box-shadow: 0px 3px 21px black;
+  max-height:50vh;
+  font-size:auto;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  text-wrap: wrap;
   border: 2px solid #000;
   border-radius: 8px;
-  padding: 20px;
+  padding: 35px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
 }
 
