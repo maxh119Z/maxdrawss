@@ -19,7 +19,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 function App() {
-  const containerRef = useRef(null);
+  const [isPreloaded, setIsPreloaded] = useState(false);
 
   const addViewCount = async () => {
     try {
@@ -40,68 +40,48 @@ function App() {
 
   useEffect(() => {
     addViewCount();
-    const isMobile = () => {
-      return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile|Windows Phone/i.test(
-        navigator.userAgent
-      );
-    };
 
-    const isInIframe = () => {
-      return window.self !== window.top;
-    };
+    // Preload images
+    const imagesToPreload = [
+      '/maxdrawss/images/connectlogo.png',
+      '/maxdrawss/images/Croppedbackground1.png',
+      '/maxdrawss/images/maxpicture.jpg',
+      '/maxdrawss/images/santa.png',
+      '/maxdrawss/images/christmas.png',
+      '/maxdrawss/images/person1.jpg',
+      '/maxdrawss/images/open.png',
+      '/maxdrawss/images/close.png',
+      '/maxdrawss/images/back2.gif',
+      '/maxdrawss/images/person10.jpg',
+      '/maxdrawss/images/ipad1.jpg',
+    ];
 
-    if (isMobile() || isInIframe()) {
-      console.log('MOBILE DEVICE OR U JUST NOT FULLSCREEN');
-      const siteHeaderContent = document.getElementById('siteheader-content');
-      const dropDiv = document.getElementById('dropdiv');
-      const title = document.getElementById('TITLE');
-      const logoImg = document.getElementById('logoimg');
-      const titledescription = document.getElementById('titledescription');
-      const text1 = document.getElementById('text1');
-
-      if (siteHeaderContent) siteHeaderContent.style.display = 'none';
-      if (dropDiv) dropDiv.style.display = 'inline-block';
-
-      if (title) {
-        title.style.fontSize = '1.5rem';
-        title.style.fontWeight = 'bold';
-      }
-
-      if (logoImg) {
-        logoImg.style.height = '100%';
-        logoImg.style.width = 'auto';
-      }
-
-      const infoElements = document.querySelectorAll('.info');
-      infoElements.forEach(element => {
-        element.style.fontSize = '0.7rem';
+    preloadImages(imagesToPreload)
+      .then(() => {
+        console.log('Images for App preloaded!');
+        setIsPreloaded(true);
+      })
+      .catch((error) => {
+        console.error('Error preloading images for App:', error);
+        setIsPreloaded(true); // Proceed even if some images fail
       });
-
-      const info2Elements = document.querySelectorAll('.info2');
-      info2Elements.forEach(element => {
-        element.style.fontSize = '0.7rem';
-      });
-
-      const bottomRightTextElements = document.querySelectorAll('.bottom-right-text');
-      bottomRightTextElements.forEach(element => {
-        element.style.fontSize = '0.85rem';
-      });
-
-      if (titledescription) {
-        titledescription.style.fontSize = '1rem';
-      }
-
-      if (text1 && window.matchMedia('(orientation: portrait)').matches) {
-        text1.innerHTML =
-          'This website shows drawings I drew for fun. I like drawing, and am mostly self-taught. I hope you enjoy! :P';
-      }
-    }
   }, []);
+
+  // Handle page opacity transition
+  useEffect(() => {
+    const body = document.body;
+    if (isPreloaded) {
+      body.style.transition = 'opacity 0.5s ease-in-out';
+      body.style.opacity = '1';
+    } else {
+      body.style.opacity = '0';
+    }
+  }, [isPreloaded]);
 
   return (
     <Router basename="/maxdrawss/">
       <Header />
-      <div ref={containerRef}>
+      <div>
         <AnimatedRoutes />
       </div>
       <footer>
@@ -133,95 +113,6 @@ function AnimatedRoutes() {
 }
 
 function Home() {
-  const [isPreloaded, setIsPreloaded] = useState(false);
-
-  useEffect(() => {
-    const isMobile = () => {
-      return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile|Windows Phone/i.test(
-        navigator.userAgent
-      );
-    };
-
-    const isInIframe = () => {
-      return window.self !== window.top;
-    };
-
-    if (isMobile() || isInIframe()) {
-      console.log('MOBILE DEVICE OR U JUST NOT FULLSCREEN');
-      const siteHeaderContent = document.getElementById('siteheader-content');
-      const dropDiv = document.getElementById('dropdiv');
-      const title = document.getElementById('TITLE');
-      const logoImg = document.getElementById('logoimg');
-      const titledescription = document.getElementById('titledescription');
-      const text1 = document.getElementById('text1');
-
-      if (siteHeaderContent) siteHeaderContent.style.display = 'none';
-      if (dropDiv) dropDiv.style.display = 'inline-block';
-
-      if (title) {
-        title.style.fontSize = '1.5rem';
-        title.style.fontWeight = 'bold';
-      }
-
-      if (logoImg) {
-        logoImg.style.height = '100%';
-        logoImg.style.width = 'auto';
-      }
-
-      const infoElements = document.querySelectorAll('.info');
-      infoElements.forEach(element => {
-        element.style.fontSize = '0.7rem';
-      });
-
-      const info2Elements = document.querySelectorAll('.info2');
-      info2Elements.forEach(element => {
-        element.style.fontSize = '0.7rem';
-      });
-
-      const bottomRightTextElements = document.querySelectorAll('.bottom-right-text');
-      bottomRightTextElements.forEach(element => {
-        element.style.fontSize = '0.85rem';
-      });
-
-      if (titledescription) {
-        titledescription.style.fontSize = '1rem';
-      }
-
-      if (text1 && window.matchMedia('(orientation: portrait)').matches) {
-        text1.innerHTML =
-          'This website shows drawings I drew for fun. I like drawing, and am mostly self-taught. I hope you enjoy! :P';
-      }
-    }
-    
-    const imagesToPreload = [
-      "/maxdrawss/images/connectlogo.png",
-      "/maxdrawss/images/Croppedbackground1.png",
-      "/maxdrawss/images/maxpicture.jpg",
-      "/maxdrawss/images/santa.png",
-      "/maxdrawss/images/christmas.png",
-      "/maxdrawss/images/person1.jpg",
-      "/maxdrawss/images/open.png",
-      "/maxdrawss/images/close.png",
-      "/maxdrawss/images/back2.gif",
-      "/maxdrawss/images/person10.jpg",
-      "/maxdrawss/images/ipad1.jpg",
-    ];
-
-    preloadImages(imagesToPreload)
-      .then(() => {
-        console.log("Images for Home preloaded!");
-        setIsPreloaded(true);
-      })
-      .catch((error) => {
-        console.error("Error preloading images for Home:", error);
-        setIsPreloaded(true); // Proceed even if some images fail
-      });
-  }, []);
-
-  if (!isPreloaded) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <motion.div
       initial={{ opacity: 0, x: -100 }}
@@ -241,37 +132,65 @@ function Home() {
         <div id="overview">
           <Link to="/People">
             <div className="image-container">
-              <img src="/maxdrawss/images/person10.jpg" alt="Overview Image" id="overviewpicture" />
+              <img
+                src="/maxdrawss/images/person10.jpg"
+                alt="Overview Image"
+                id="overviewpicture"
+              />
               <div className="bottom-right-text">Recent</div>
             </div>
           </Link>
           <div id="overview-text">
-            <p id="text1">This website shows drawings I drew for fun. I like drawing, and am mostly self-taught. I hope you enjoy! :P</p>
+            <p id="text1">
+              On Max's Drawings, you will see drawings I do over time. I like
+              drawing sometimes, so I made this website. Below this description,
+              you can see portraits or ppl I draw, other stuff, and things I drew
+              on my brother's Ipad during break. I hope you enjoy! I also put some
+              drawings from a few years ago I found in my closet. I originally
+              created this website for a non-profit idea but screw that becuz it
+              seems like too much work that I didn't want to do.
+            </p>
           </div>
         </div>
         <div className="line-1"></div>
         <div className="person" id="bar">
           <Link to="/People">
             <div className="image-container">
-              <img src="/maxdrawss/images/person1.jpg" alt="personlookingsideways" className="indexpics" />
+              <img
+                src="/maxdrawss/images/person1.jpg"
+                alt="personlookingsideways"
+                className="indexpics"
+              />
               <div className="bottom-right-text">People</div>
             </div>
           </Link>
           <Link to="/Ipad">
             <div className="image-container">
-              <img src="/maxdrawss/images/ipad1.jpg" alt="boyheronwallpaperIdrew" className="indexpics" />
+              <img
+                src="/maxdrawss/images/ipad1.jpg"
+                alt="boyheronwallpaperIdrew"
+                className="indexpics"
+              />
               <div className="bottom-right-text">Ipad Draws</div>
             </div>
           </Link>
           <Link to="/Other">
             <div className="image-container">
-              <img src="/maxdrawss/images/other1.jpg" alt="abstractpicture" className="indexpics" />
+              <img
+                src="/maxdrawss/images/other1.jpg"
+                alt="abstractpicture"
+                className="indexpics"
+              />
               <div className="bottom-right-text">Other Stuff</div>
             </div>
           </Link>
           <Link to="/About">
             <div className="image-container">
-              <img src="/maxdrawss/images/maxpicture.jpg" alt="maxpicture" className="indexpics" />
+              <img
+                src="/maxdrawss/images/maxpicture.jpg"
+                alt="maxpicture"
+                className="indexpics"
+              />
               <div className="bottom-right-text">About me ig</div>
             </div>
           </Link>
