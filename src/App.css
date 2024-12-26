@@ -157,6 +157,7 @@ body {
 #logoimg {
   height: 75px;
   width: auto;
+  max-height: 75px;
   box-shadow:none;
 }
 #Logoname {
