@@ -20,11 +20,6 @@ import { motion } from 'framer-motion';
 
 function App() {
   const containerRef = useRef(null);
-  const isMobile = () => {
-    return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile|Windows Phone/i.test(
-      navigator.userAgent
-    );
-  };
 
   const addViewCount = async () => {
     try {
@@ -45,7 +40,11 @@ function App() {
 
   useEffect(() => {
     addViewCount();
-    
+    const isMobile = () => {
+      return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile|Windows Phone/i.test(
+        navigator.userAgent
+      );
+    };
 
     const isInIframe = () => {
       return window.self !== window.top;
@@ -136,6 +135,11 @@ function AnimatedRoutes() {
 }
 
 function Home() {
+  const isMobile = () => {
+    return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile|Windows Phone/i.test(
+      navigator.userAgent
+    );
+  };
   useEffect(() => {
     const imagesToPreload = [
       "/maxdrawss/images/connectlogo.png",
