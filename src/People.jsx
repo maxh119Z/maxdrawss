@@ -7,6 +7,7 @@ function People() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
+    const body = document.body;
     body.style.opacity = "0";
     const isMobile = () => {
       return (

@@ -39,6 +39,7 @@ function App() {
   };
 
   useEffect(() => {
+    const body = document.body;
     body.style.opacity = "0";
     addViewCount();
     const isMobile = () => {

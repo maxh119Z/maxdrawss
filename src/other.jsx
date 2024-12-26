@@ -7,6 +7,7 @@ const Other = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
+    const body = document.body;
     body.style.opacity = "0";
     // Preload images specific to the Other component
     const imagesToPreload = [
