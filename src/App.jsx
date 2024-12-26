@@ -205,9 +205,12 @@ function App() {
                 popupDiv.remove();
               });
                 popupDiv.style.display = 'block';
-                trackedSetTimeout(() => {
-                    popupDiv.remove;
-    },400);
+                const fadeOutTimeout2 = trackedSetTimeout(() => {
+                  gifImg.classList.add('fade-out');
+                  trackedSetTimeout(() => {
+                    popupDiv.remove();
+                  }, 450); // Match the fade-out transition duration
+                }, 5850);
     } else {
       body.style.opacity = '0';
     }
