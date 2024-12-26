@@ -71,7 +71,6 @@ function People() {
       "images/open.png",
       "images/close.png",
       "images/caden.jpg",
-      "images/person7.jpg",
       "images/overview.jpg",
       "images/person10.jpg",
       "images/person9.png",
@@ -130,11 +129,11 @@ function People() {
           <span className="info">
             <h1>Zombified Caden</h1>
             <div className="line-2"></div>
-            <p>I drew him as a zombie. He looks very cool. Click on the image.</p>
+            <p>I drew him as a zombie. He looks very cool.</p>
           </span>
           <div className="image-container2">
             <span id="maximg">
-              <img className="clickable" id="cadenpicture" src="images/person7.jpg" alt="Max" />
+              <img className="clickable" id="cadenpicture" src="images/caden.jpg" alt="Max" />
             </span>
             <div className="bottom-right-text">9/5/2024</div>
           </div>
