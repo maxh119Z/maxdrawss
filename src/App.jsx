@@ -205,6 +205,9 @@ function App() {
                 popupDiv.remove();
               });
                 popupDiv.style.display = 'block';
+                trackedSetTimeout(() => {
+                    popupDiv.remove;
+    },400);
     } else {
       body.style.opacity = '0';
     }
