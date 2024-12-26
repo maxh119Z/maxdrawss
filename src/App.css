@@ -19,6 +19,11 @@ motion.div {
   opacity: 1;
   animation: floatAndFade 4s linear forwards, shakeRotate 1.5s infinite;
 }
+body {
+  margin: 0;
+  box-sizing: border-box;
+  overflow-x:hidden;
+}
 .gif{
   width: 100vw;
   height:auto;
