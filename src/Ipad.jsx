@@ -91,7 +91,7 @@ const Ipad = () => {
   useEffect(() => {
     const body = document.body;
     if (isLoaded) {
-      body.style.transition = "opacity 0.5s ease-in-out";
+
       body.style.opacity = "1";
     } else {
       body.style.opacity = "0";

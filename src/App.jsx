@@ -126,7 +126,7 @@ function App() {
   useEffect(() => {
     const body = document.body;
     if (isPreloaded) {
-      body.style.transition = 'opacity 0.5s ease-in-out';
+   
       body.style.opacity = '1';
       const gifDiv = document.createElement('div');
             gifDiv.className = 'gif';
