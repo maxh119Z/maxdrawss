@@ -34,9 +34,8 @@ const Other = () => {
   // Set page opacity based on the loading state
   useEffect(() => {
     const isMobile = () => {
-      return (
-        typeof window.orientation !== "undefined" ||
-        navigator.userAgent.indexOf("IEMobile") !== -1
+      return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile|Windows Phone/i.test(
+        navigator.userAgent
       );
     };
     
