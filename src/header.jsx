@@ -8,6 +8,12 @@ import { collection, doc, getDocs, query, setDoc, where, getDoc, onSnapshot , up
 import { Routes, Route, Link} from 'react-router-dom';
 
 function header() {
+  const isMobile = () => {
+      return (
+        typeof window.orientation !== "undefined" ||
+        navigator.userAgent.indexOf("IEMobile") !== -1
+      );
+    };
     const [name, setName] = useState("");
     useEffect(() => {
             onAuthStateChanged(auth, (currentUser) => {
@@ -23,7 +29,16 @@ function header() {
             });
             
     }, []);
-    
+      const myFunction = () =>{
+          document.getElementById("myDropdown").classList.toggle("show");
+          if (document.getElementById("myDropdown").classList.contains("show")){
+            document.getElementById("dropimg").src = "images/close.png";
+          }
+          else{
+            document.getElementById("dropimg").src = "images/open.png";
+          }
+        
+      }
       const signOutOfAccount = async () => {
         signOut(auth).then(() => {
           setName("");
@@ -32,7 +47,17 @@ function header() {
           // An error happened.
         });
       };
-    
+      document.body.addEventListener('click', function () {
+        if (!event.target.matches('.dropbtn')) {
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          for (let openDropdown of dropdowns) {
+            if (openDropdown.classList.contains('show')) {
+              document.getElementById("dropimg").src = "images/open.png";
+              openDropdown.classList.remove('show');
+            }
+          }
+        }
+      });
       const addViewCount = async () => {
         try {
           const viewDocRef = doc(db, "viewcount", "viewcount"); 
@@ -87,29 +112,62 @@ function header() {
     
       };
     return (
+      
       <div className="site-header">
         <Link to="/">
             <img id="logoimg" src="/maxdrawss/images/connectlogo.png" alt="Logo" />
         </Link>
-        <div className="header-content">
+        
+        {!isMobile ? (
+          <div id="dropdiv" class="dropdown">
+            <div id = "A">
+         <button onClick={myFunction} class="dropbtn">
+           <img id="dropimg" class="dropbtn" src="images/open.png"/>
+         </button>
 
-          <nav>
-            <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/People">People</Link></li>
-              <li><Link to="/Ipad">Ipad</Link></li>
-              <li><Link to="/Other">Other</Link></li>
-              <li><Link to="/About">About</Link></li>
-              {name ? (
-      // If user is logged in, show SIGNOUT button
-                <li><button class="dropbtn2" onClick={signOutOfAccount}>SIGNOUT</button></li>
-              ) : (
-                // If user is not logged in, show LOGIN button
-                <li><button class="dropbtn2" onClick={googleSignIn}>LOGIN</button></li>
-              )}
-            </ul>
-          </nav>
-        </div>
+              </div>
+            
+              <div id="myDropdown" class="dropdown-content">
+
+              <nav>
+                <ul>
+                  <li><Link to="/">Home</Link></li>
+                  <li><Link to="/People">People</Link></li>
+                  <li><Link to="/Ipad">Ipad</Link></li>
+                  <li><Link to="/Other">Other</Link></li>
+                  <li><Link to="/About">About</Link></li>
+                  {name ? (
+          // If user is logged in, show SIGNOUT button
+                    <li><button class="dropbtn2" onClick={signOutOfAccount}>SIGNOUT</button></li>
+                  ) : (
+                    // If user is not logged in, show LOGIN button
+                    <li><button class="dropbtn2" onClick={googleSignIn}>LOGIN</button></li>
+                  )}
+                </ul>
+              </nav>
+            </div>
+          </div>
+            ) : (
+              <div className="header-content">
+
+              <nav>
+                <ul>
+                  <li><Link to="/">Home</Link></li>
+                  <li><Link to="/People">People</Link></li>
+                  <li><Link to="/Ipad">Ipad</Link></li>
+                  <li><Link to="/Other">Other</Link></li>
+                  <li><Link to="/About">About</Link></li>
+                  {name ? (
+          // If user is logged in, show SIGNOUT button
+                    <li><button class="dropbtn2" onClick={signOutOfAccount}>SIGNOUT</button></li>
+                  ) : (
+                    // If user is not logged in, show LOGIN button
+                    <li><button class="dropbtn2" onClick={googleSignIn}>LOGIN</button></li>
+                  )}
+                </ul>
+              </nav>
+            </div>
+        )}
       </div>
     );
   }
