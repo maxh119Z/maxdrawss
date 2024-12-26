@@ -179,13 +179,17 @@ function Home() {
             </div>
           </Link>
           <div id="overview-text">
-            <p id="text1">
-              On Max's Drawings, you will see drawings I do over time. I like drawing sometimes, so I made this website.
-              Below this description, you can see portraits or ppl I draw, other stuff, and things I drew on my brother's
-              Ipad during break. I hope you enjoy! I also put some drawings from a few years ago I found in my closet.
-              I originally created this website for a non-profit idea but screw that becuz it seems like too much work that I
-              didn't want to do.
-            </p>
+                {isMobile ? (
+              <p id="text1">
+                On Max's Drawings, you will see drawings I do over time. I like drawing sometimes, so I made this
+                website. Below this description, you can see portraits or ppl I draw, other stuff, and things I drew on
+                my brother's Ipad during break. I hope you enjoy! I also put some drawings from a few years ago I found
+                in my closet. I originally created this website for a non-profit idea but screw that becuz it seems like
+                too much work that I didn't want to do.
+              </p>
+            ) : (
+              <p id = "text1">This website shows drawings I drew for fun. I like drawing, and am mostly self-taught. I hope you enjoy! :P</p>
+            )}
           </div>
         </div>
         <div className="line-1"></div>
