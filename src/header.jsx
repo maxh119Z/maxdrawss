@@ -117,56 +117,49 @@ function header() {
             <img id="logoimg" src="/maxdrawss/images/connectlogo.png" alt="Logo" />
         </Link>
         
-        {!isMobile ? (
-          <div id="dropdiv" class="dropdown">
-            <div id = "A">
-         <button onClick={myFunction} class="dropbtn">
-           <img id="dropimg" class="dropbtn" src="images/open.png"/>
-         </button>
-
-              </div>
-            
-              <div id="myDropdown" class="dropdown-content">
-
-              <nav>
-                <ul>
-                  <li><Link to="/">Home</Link></li>
-                  <li><Link to="/People">People</Link></li>
-                  <li><Link to="/Ipad">Ipad</Link></li>
-                  <li><Link to="/Other">Other</Link></li>
-                  <li><Link to="/About">About</Link></li>
-                  {name ? (
-          // If user is logged in, show SIGNOUT button
-                    <li><button class="dropbtn2" onClick={signOutOfAccount}>SIGNOUT</button></li>
-                  ) : (
-                    // If user is not logged in, show LOGIN button
-                    <li><button class="dropbtn2" onClick={googleSignIn}>LOGIN</button></li>
-                  )}
-                </ul>
-              </nav>
-            </div>
-          </div>
-            ) : (
-              <div className="header-content">
-
-              <nav>
-                <ul>
-                  <li><Link to="/">Home</Link></li>
-                  <li><Link to="/People">People</Link></li>
-                  <li><Link to="/Ipad">Ipad</Link></li>
-                  <li><Link to="/Other">Other</Link></li>
-                  <li><Link to="/About">About</Link></li>
-                  {name ? (
-          // If user is logged in, show SIGNOUT button
-                    <li><button class="dropbtn2" onClick={signOutOfAccount}>SIGNOUT</button></li>
-                  ) : (
-                    // If user is not logged in, show LOGIN button
-                    <li><button class="dropbtn2" onClick={googleSignIn}>LOGIN</button></li>
-                  )}
-                </ul>
-              </nav>
-            </div>
+        {isMobile ? (
+  <div id="dropdiv" className="dropdown">
+    <div id="A">
+      <button onClick={myFunction} className="dropbtn">
+        <img id="dropimg" className="dropbtn" src="images/open.png" alt="Dropdown" />
+      </button>
+    </div>
+    <div id="myDropdown" className="dropdown-content">
+      <nav>
+        <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/People">People</Link></li>
+          <li><Link to="/Ipad">Ipad</Link></li>
+          <li><Link to="/Other">Other</Link></li>
+          <li><Link to="/About">About</Link></li>
+          {name ? (
+            <li><button className="dropbtn2" onClick={signOutOfAccount}>SIGNOUT</button></li>
+          ) : (
+            <li><button className="dropbtn2" onClick={googleSignIn}>LOGIN</button></li>
+          )}
+        </ul>
+      </nav>
+    </div>
+  </div>
+) : (
+  <div className="header-content">
+    <nav>
+      <ul>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/People">People</Link></li>
+        <li><Link to="/Ipad">Ipad</Link></li>
+        <li><Link to="/Other">Other</Link></li>
+        <li><Link to="/About">About</Link></li>
+        {name ? (
+          <li><button className="dropbtn2" onClick={signOutOfAccount}>SIGNOUT</button></li>
+        ) : (
+          <li><button className="dropbtn2" onClick={googleSignIn}>LOGIN</button></li>
         )}
+      </ul>
+    </nav>
+  </div>
+)}
+
       </div>
     );
   }

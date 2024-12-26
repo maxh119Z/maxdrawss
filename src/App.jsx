@@ -43,9 +43,8 @@ function App() {
     body.style.opacity = "0";
     addViewCount();
     const isMobile = () => {
-      return (
-        typeof window.orientation !== "undefined" ||
-        navigator.userAgent.indexOf("IEMobile") !== -1
+      return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile|Windows Phone/i.test(
+        navigator.userAgent
       );
     };
     
@@ -229,6 +228,63 @@ function AnimatedRoutes() {
 }
 
 function Home() {
+  useEffect(() => {
+
+    const isMobile = () => {
+      return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile|Windows Phone/i.test(
+        navigator.userAgent
+      );
+    };
+    
+
+    if (isMobile()) {
+      console.log('MOBILE DEVICE OR U JUST NOT FULLSCREEN');
+      const siteHeaderContent = document.getElementById('siteheader-content');
+      const dropDiv = document.getElementById('dropdiv');
+      const title = document.getElementById('TITLE');
+      const logoImg = document.getElementById('logoimg');
+      const titledescription = document.getElementById('titledescription');
+      const text1 = document.getElementById('text1');
+
+      if (siteHeaderContent) siteHeaderContent.style.display = 'none';
+      if (dropDiv) dropDiv.style.display = 'inline-block';
+
+      if (title) {
+        title.style.fontSize = '1.5rem';
+        title.style.fontWeight = 'bold';
+      }
+
+      if (logoImg) {
+        logoImg.style.height = '100%';
+        logoImg.style.width = 'auto';
+      }
+
+      const infoElements = document.querySelectorAll('.info');
+      infoElements.forEach((element) => {
+        element.style.fontSize = '0.7rem';
+      });
+
+      const info2Elements = document.querySelectorAll('.info2');
+      info2Elements.forEach((element) => {
+        element.style.fontSize = '0.7rem';
+      });
+
+      const bottomRightTextElements = document.querySelectorAll('.bottom-right-text');
+      bottomRightTextElements.forEach((element) => {
+        element.style.fontSize = '0.85rem';
+      });
+
+      if (titledescription) {
+        titledescription.style.fontSize = '1rem';
+      }
+
+      if (text1 && window.matchMedia('(orientation: portrait)').matches) {
+        console.log('Changed');
+        text1.innerHTML =
+          'This website shows drawings I drew for fun. I like drawing, and am mostly self-taught. I hope you enjoy! :P';
+      }
+    }
+  }, []);
   return (
     <motion.div
       initial={{  x: -100 }}
