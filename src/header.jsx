@@ -9,11 +9,10 @@ import { Routes, Route, Link} from 'react-router-dom';
 
 function header() {
   const isMobile = () => {
-      return (
-        typeof window.orientation !== "undefined" ||
-        navigator.userAgent.indexOf("IEMobile") !== -1
-      );
-    };
+    return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile|Windows Phone/i.test(
+      navigator.userAgent
+    );
+  };
     const [name, setName] = useState("");
     useEffect(() => {
             onAuthStateChanged(auth, (currentUser) => {
