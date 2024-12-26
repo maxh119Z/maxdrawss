@@ -39,6 +39,7 @@ function App() {
   };
 
   useEffect(() => {
+    body.style.opacity = "0";
     addViewCount();
     const isMobile = () => {
       return (
@@ -101,8 +102,6 @@ function App() {
       '/maxdrawss/images/connectlogo.png',
       '/maxdrawss/images/Croppedbackground1.png',
       '/maxdrawss/images/maxpicture.jpg',
-      '/maxdrawss/images/santa.png',
-      '/maxdrawss/images/christmas.png',
       '/maxdrawss/images/person1.jpg',
       '/maxdrawss/images/open.png',
       '/maxdrawss/images/close.png',

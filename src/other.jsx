@@ -7,6 +7,7 @@ const Other = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
+    body.style.opacity = "0";
     // Preload images specific to the Other component
     const imagesToPreload = [
       "images/connectlogo.png",
@@ -14,9 +15,7 @@ const Other = () => {
       "images/open.png",
       "images/close.png",
       "images/other6.jpg",
-      "images/other2.jpg",
-      "images/other3.jpg",
-      "images/other1.jpg",
+      "images/other5.jpg",
       "images/other4.jpg",
     ];
 

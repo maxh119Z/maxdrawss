@@ -7,6 +7,7 @@ function People() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
+    body.style.opacity = "0";
     const isMobile = () => {
       return (
         typeof window.orientation !== "undefined" ||
@@ -70,14 +71,9 @@ function People() {
       "images/close.png",
       "images/caden.jpg",
       "images/person7.jpg",
-      "images/person10.jpg",
-      "images/person5.jpg",
-      "images/person6.jpg",
-      "images/person2.jpg",
-      "images/person3.jpg",
       "images/overview.jpg",
-      "images/person1.jpg",
-      "images/person4.jpg",
+      "images/person10.jpg",
+      "images/person9.png",
     ];
 
     preloadImages(imagesToPreload)

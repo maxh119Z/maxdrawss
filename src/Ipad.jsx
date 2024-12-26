@@ -7,6 +7,7 @@ const Ipad = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
+    body.style.opacity = "0";
     const isMobile = () => {
       return (
         typeof window.orientation !== "undefined" ||
