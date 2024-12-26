@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './App.css';
 import { auth, db } from './firebase/firebase.jsx';
 import {
@@ -51,8 +51,103 @@ function App() {
     };
 
     if (isMobile() || isInIframe()) {
-      console.log(
-        "MOBILE DEVICE OR U JUST NOT FULLSCREEN");
+      console.log('MOBILE DEVICE OR U JUST NOT FULLSCREEN');
+      const siteHeaderContent = document.getElementById('siteheader-content');
+      const dropDiv = document.getElementById('dropdiv');
+      const title = document.getElementById('TITLE');
+      const logoImg = document.getElementById('logoimg');
+      const titledescription = document.getElementById('titledescription');
+      const text1 = document.getElementById('text1');
+
+      if (siteHeaderContent) siteHeaderContent.style.display = 'none';
+      if (dropDiv) dropDiv.style.display = 'inline-block';
+
+      if (title) {
+        title.style.fontSize = '1.5rem';
+        title.style.fontWeight = 'bold';
+      }
+
+      if (logoImg) {
+        logoImg.style.height = '100%';
+        logoImg.style.width = 'auto';
+      }
+
+      const infoElements = document.querySelectorAll('.info');
+      infoElements.forEach(element => {
+        element.style.fontSize = '0.7rem';
+      });
+
+      const info2Elements = document.querySelectorAll('.info2');
+      info2Elements.forEach(element => {
+        element.style.fontSize = '0.7rem';
+      });
+
+      const bottomRightTextElements = document.querySelectorAll('.bottom-right-text');
+      bottomRightTextElements.forEach(element => {
+        element.style.fontSize = '0.85rem';
+      });
+
+      if (titledescription) {
+        titledescription.style.fontSize = '1rem';
+      }
+
+      if (text1 && window.matchMedia('(orientation: portrait)').matches) {
+        text1.innerHTML =
+          'This website shows drawings I drew for fun. I like drawing, and am mostly self-taught. I hope you enjoy! :P';
+      }
+    }
+  }, []);
+
+  return (
+    <Router basename="/maxdrawss/">
+      <Header />
+      <div ref={containerRef}>
+        <AnimatedRoutes />
+      </div>
+      <footer>
+        <p>
+          Make your own website
+          <br />
+          <a href="https://youtu.be/chOvyuyZe9M">https://youtu.be/chOvyuyZe9M</a>
+        </p>
+        <p>
+          Do not email me
+          <br />
+          <a href="mailto:maxhzhang119@gmail.com">maxhzhang119@gmail.com</a>
+        </p>
+      </footer>
+    </Router>
+  );
+}
+
+function AnimatedRoutes() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/People" element={<People />} />
+      <Route path="/Ipad" element={<Ipad />} />
+      <Route path="/Other" element={<Other />} />
+      <Route path="/About" element={<About />} />
+    </Routes>
+  );
+}
+
+function Home() {
+  const [isPreloaded, setIsPreloaded] = useState(false);
+
+  useEffect(() => {
+    const isMobile = () => {
+      return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile|Windows Phone/i.test(
+        navigator.userAgent
+      );
+    };
+
+    const isInIframe = () => {
+      return window.self !== window.top;
+    };
+
+    if (isMobile() || isInIframe()) {
+      console.log('MOBILE DEVICE OR U JUST NOT FULLSCREEN');
       const siteHeaderContent = document.getElementById('siteheader-content');
       const dropDiv = document.getElementById('dropdiv');
       const title = document.getElementById('TITLE');
@@ -98,102 +193,6 @@ function App() {
       }
     }
     
-  }, []);
-
-  return (
-    <Router basename="/maxdrawss/">
-      <Header />
-      <div ref={containerRef}>
-        <AnimatedRoutes />
-      </div>
-      <footer>
-        <p>
-          Make your own website
-          <br />
-          <a href="https://youtu.be/chOvyuyZe9M">https://youtu.be/chOvyuyZe9M</a>
-        </p>
-        <p>
-          Do not email me
-          <br />
-          <a href="mailto:maxhzhang119@gmail.com">maxhzhang119@gmail.com</a>
-        </p>
-      </footer>
-    </Router>
-  );
-}
-
-function AnimatedRoutes() {
-  return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/People" element={<People />} />
-      <Route path="/Ipad" element={<Ipad />} />
-      <Route path="/Other" element={<Other />} />
-      <Route path="/About" element={<About />} />
-    </Routes>
-  );
-}
-
-function Home() {
-  
-  useEffect(() => {
-    const isMobile = () => {
-      return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile|Windows Phone/i.test(
-        navigator.userAgent
-      );
-    };
-
-    const isInIframe = () => {
-      return window.self !== window.top;
-    };
-
-    if (isMobile() || isInIframe()) {
-      console.log(
-        "MOBILE DEVICE OR U JUST NOT FULLSCREEN");
-      const siteHeaderContent = document.getElementById('siteheader-content');
-      const dropDiv = document.getElementById('dropdiv');
-      const title = document.getElementById('TITLE');
-      const logoImg = document.getElementById('logoimg');
-      const titledescription = document.getElementById('titledescription');
-      const text1 = document.getElementById('text1');
-
-      if (siteHeaderContent) siteHeaderContent.style.display = 'none';
-      if (dropDiv) dropDiv.style.display = 'inline-block';
-
-      if (title) {
-        title.style.fontSize = '1.5rem';
-        title.style.fontWeight = 'bold';
-      }
-
-      if (logoImg) {
-        logoImg.style.height = '100%';
-        logoImg.style.width = 'auto';
-      }
-
-      const infoElements = document.querySelectorAll('.info');
-      infoElements.forEach(element => {
-        element.style.fontSize = '0.7rem';
-      });
-
-      const info2Elements = document.querySelectorAll('.info2');
-      info2Elements.forEach(element => {
-        element.style.fontSize = '0.7rem';
-      });
-
-      const bottomRightTextElements = document.querySelectorAll('.bottom-right-text');
-      bottomRightTextElements.forEach(element => {
-        element.style.fontSize = '0.85rem';
-      });
-
-      if (titledescription) {
-        titledescription.style.fontSize = '1rem';
-      }
-
-      if (text1 && window.matchMedia('(orientation: portrait)').matches) {
-        text1.innerHTML =
-          'This website shows drawings I drew for fun. I like drawing, and am mostly self-taught. I hope you enjoy! :P';
-      }
-    }
     const imagesToPreload = [
       "/maxdrawss/images/connectlogo.png",
       "/maxdrawss/images/Croppedbackground1.png",
@@ -205,13 +204,23 @@ function Home() {
       "/maxdrawss/images/close.png",
       "/maxdrawss/images/back2.gif",
       "/maxdrawss/images/person10.jpg",
-      "/maxdrawss/images/ipad1.jpg"
+      "/maxdrawss/images/ipad1.jpg",
     ];
 
     preloadImages(imagesToPreload)
-      .then(() => console.log("Images for Home preloaded!"))
-      .catch((error) => console.error("Error preloading images for Home:", error));
+      .then(() => {
+        console.log("Images for Home preloaded!");
+        setIsPreloaded(true);
+      })
+      .catch((error) => {
+        console.error("Error preloading images for Home:", error);
+        setIsPreloaded(true); // Proceed even if some images fail
+      });
   }, []);
+
+  if (!isPreloaded) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <motion.div
@@ -221,7 +230,7 @@ function Home() {
       transition={{ duration: 0.5 }}
     >
       <div id="body" className="shake-container">
-        <div id = "container"></div>
+        <div id="container"></div>
         <div id="TITLE">
           <h1>Max's Drawings</h1>
         </div>
@@ -237,17 +246,7 @@ function Home() {
             </div>
           </Link>
           <div id="overview-text">
-                {isMobile ? (
-              <p id="text1">
-                On Max's Drawings, you will see drawings I do over time. I like drawing sometimes, so I made this
-                website. Below this description, you can see portraits or ppl I draw, other stuff, and things I drew on
-                my brother's Ipad during break. I hope you enjoy! I also put some drawings from a few years ago I found
-                in my closet. I originally created this website for a non-profit idea but screw that becuz it seems like
-                too much work that I didn't want to do.
-              </p>
-            ) : (
-              <p id = "text1">This website shows drawings I drew for fun. I like drawing, and am mostly self-taught. I hope you enjoy! :P</p>
-            )}
+            <p id="text1">This website shows drawings I drew for fun. I like drawing, and am mostly self-taught. I hope you enjoy! :P</p>
           </div>
         </div>
         <div className="line-1"></div>
