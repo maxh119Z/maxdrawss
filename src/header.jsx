@@ -21,67 +21,7 @@ function header() {
             }
             else setName("");
             });
-            const gifDiv = document.createElement('div');
-            gifDiv.className = 'gif';
             
-            const gifImg = document.createElement('img');
-            gifImg.src = `images/back2.gif?t=${new Date().getTime()}`;
-            gifImg.className = 'gifimg';
-            gifImg.style.border = 'none';
-            gifDiv.appendChild(gifImg);
-            document.body.appendChild(gifDiv);
-
-            const trackedSetTimeout = (callback, delay) => {
-              return setTimeout(callback, delay);
-            };
-
-            // Fade out and remove gif
-            const fadeOutTimeout = trackedSetTimeout(() => {
-              gifImg.classList.add('fade-out');
-              trackedSetTimeout(() => {
-                gifImg.remove();
-                gifDiv.remove();
-              }, 450); // Match the fade-out transition duration
-            }, 2850);
-
-            // const numberOfSquares = 24;
-
-            trackedSetTimeout(() => {
-              const containers = document.querySelector('.shake-container');
-              if (containers) {
-                containers.classList.add('shake');
-                console.log("Shaking");
-
-                containers.addEventListener('animationend', () => {
-                  containers.classList.remove('shake');
-                  console.log("removed shaking");
-                });
-              }
-              else{
-                console.log("Shaker doesnt exist");
-              }
-
-            //   for (let i = 0; i < numberOfSquares; i++) {
-            //     trackedSetTimeout(function(){
-            //       const square = document.createElement('div');
-            //       let a = Math.floor(Math.random() * 6);
-            //       if (a == 5){
-            //         square.classList.add('floating-rectangle');
-            //       }
-            //       else{
-            //         square.classList.add('floating-square');
-            //       }
-                  
-            //       square.style.left = Math.random() * window.innerWidth + 'px';
-            //       square.style.top = '-75px';
-            //       document.getElementById("container").appendChild(square);
-
-            //       trackedSetTimeout(function() {
-            //           document.getElementById("container").removeChild(square);
-            //       }, 4000);
-            //     }, Math.ceil(Math.random() * 1350));
-            //   }
-             }, 1750);
     }, []);
     
       const signOutOfAccount = async () => {
