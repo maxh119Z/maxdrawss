@@ -82,7 +82,43 @@ motion.div {
 }
 /* Change color of dropdown links on hover */
 .dropdown-content li:hover {background-color: #ddd;}
+.popup {
+  display: none; /* Initially hidden */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background-color: white;
+  border: 2px solid #000;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
 
+.popup-content {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.popup-content p {
+  margin: 0;
+  font-size: 18px;
+}
+
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Fade-out animation for GIF */
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.45s ease-out;
+}
 body {
   margin: 0;
   opacity: 0;
