@@ -99,15 +99,15 @@ function App() {
 
     // Preload images
     const imagesToPreload = [
-      '/maxdrawss/images/connectlogo.png',
-      '/maxdrawss/images/Croppedbackground1.png',
-      '/maxdrawss/images/maxpicture.jpg',
-      '/maxdrawss/images/person1.jpg',
-      '/maxdrawss/images/open.png',
-      '/maxdrawss/images/close.png',
-      '/maxdrawss/images/back2.gif',
-      '/maxdrawss/images/person10.jpg',
-      '/maxdrawss/images/ipad1.jpg',
+      '/images/connectlogo.png',
+      '/images/Croppedbackground1.png',
+      '/images/maxpicture.jpg',
+      '/images/person1.jpg',
+      '/images/open.png',
+      '/images/close.png',
+      '/images/back2.gif',
+      '/images/person10.jpg',
+      '/images/ipad1.jpg',
     ];
 
     preloadImages(imagesToPreload)
@@ -217,7 +217,7 @@ function App() {
   }, [isPreloaded]);
 
   return (
-    <Router basename="/maxdrawss/">
+    <Router basename="/">
       <Header />
       <div>
         <AnimatedRoutes />
@@ -328,7 +328,7 @@ function Home() {
           <Link to="/People">
             <div className="image-container">
               <img
-                src="/maxdrawss/images/person10.jpg"
+                src="./images/person10.jpg"
                 alt="Overview Image"
                 id="overviewpicture"
               />
@@ -352,7 +352,7 @@ function Home() {
           <Link to="/People">
             <div className="image-container">
               <img
-                src="/maxdrawss/images/person1.jpg"
+                src="./images/person1.jpg"
                 alt="personlookingsideways"
                 className="indexpics"
               />
@@ -362,7 +362,7 @@ function Home() {
           <Link to="/Ipad">
             <div className="image-container">
               <img
-                src="/maxdrawss/images/ipad1.jpg"
+                src="./images/ipad1.jpg"
                 alt="boyheronwallpaperIdrew"
                 className="indexpics"
               />
@@ -372,7 +372,7 @@ function Home() {
           <Link to="/Other">
             <div className="image-container">
               <img
-                src="/maxdrawss/images/other1.jpg"
+                src="./images/other1.jpg"
                 alt="abstractpicture"
                 className="indexpics"
               />
@@ -382,7 +382,7 @@ function Home() {
           <Link to="/About">
             <div className="image-container">
               <img
-                src="/maxdrawss/images/maxpicture.jpg"
+                src="./images/maxpicture.jpg"
                 alt="maxpicture"
                 className="indexpics"
               />

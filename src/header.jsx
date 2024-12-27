@@ -88,7 +88,7 @@ function Header() {
   return (
     <div className="site-header">
       <Link to="/">
-        <img id="logoimg" src="/maxdrawss/images/connectlogo.png" alt="Logo" />
+        <img id="logoimg" src="./images/connectlogo.png" alt="Logo" />
       </Link>
 
       {isMobile ? (
