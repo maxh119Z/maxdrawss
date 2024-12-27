@@ -1,6 +1,7 @@
 {
   "name": "maxdraw",
-  "private": true,
+  "private": false,
+  "homepage": "https://maxh119z.github.io/maxdrawss",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
